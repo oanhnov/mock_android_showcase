@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="data_not_found">Data not found</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="transition_layout">transition_layout</string>
+    <string name="transition_imnage">transition_image</string>
+    <string name="explore_activities">Explore activities</string>
+    <string name="description_explore_activities">Explore trending activities in your location</string>
+    <string name="inspire_yourself">Inspire Yourself</string>
+    <string name="description_inspire_yourself">Get inspiration from popular users</string>
+    <string name="find_nearby">Find nearby</string>
+    <string name="description_find_nearby">Find interesting vendors close to use</string>
+</resources>

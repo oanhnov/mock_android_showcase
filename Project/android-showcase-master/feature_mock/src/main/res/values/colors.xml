@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_background_splash">#1A1E21</color>
+    <color name="color_title_album">#000000</color>
+    <color name="color_txt_description">#BABABA</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_txt_item_name">#BABABA</color>
+    <color name="color_txt_item_artist">#ffffff</color>
+</resources>

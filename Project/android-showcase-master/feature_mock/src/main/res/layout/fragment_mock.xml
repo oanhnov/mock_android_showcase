@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/errorAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llToolbar">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="lottie_error_screen.json"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/space_medium"
+            android:text="@string/data_not_found" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/noAlbums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_round_error_outline"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llToolbar" />
+
+    <ScrollView
+        android:id="@+id/scrLayoutAlbum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llToolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:id="@+id/llToolbarShow"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/color_background_splash"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|snap"
+                tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:id="@+id/imgToolbarShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_mock" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llToolbarShow" />
+
+            <LinearLayout
+                android:id="@+id/layoutAlbum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/llToolbarShow"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llToolbarShow">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/explore_activities"
+                    android:textColor="@color/color_title_album"
+                    android:textSize="@dimen/size_txt_title" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/description_explore_activities"
+                    android:textColor="@color/color_txt_description"
+                    android:textSize="@dimen/size_txt_description" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rclExplore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="vertical" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/inspire_yourself"
+                    android:textColor="@color/color_title_album"
+                    android:textSize="@dimen/size_txt_title" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/description_inspire_yourself"
+                    android:textColor="@color/color_txt_description"
+                    android:textSize="@dimen/size_txt_description" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rclInspire"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="vertical" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/find_nearby"
+                    android:textColor="@color/color_title_album"
+                    android:textSize="@dimen/size_txt_title" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/description_find_nearby"
+                    android:textColor="@color/color_txt_description"
+                    android:textSize="@dimen/size_txt_description" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rclFindNearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="vertical" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/llToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/color_background_splash"
+        android:orientation="horizontal"
+        android:transitionName="@string/transition_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|snap"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imgToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_mock"
+            android:transitionName="@string/transition_imnage" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

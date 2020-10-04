@@ -1,0 +1,63 @@
+@startuml
+actor User
+participant Activity
+participant SplashFragment
+participant MockFragment
+participant ExploreActivitiesAdapter
+participant InspireYourselfAdapter
+participant FindNearbyAdapter
+participant ActivateListViewModel
+participant GetAlbumListUseCase
+participant AlbumRepositoryImpl
+participant AlbumRetrofitService 
+database Database
+
+User -> Activity : open application
+Activity -> SplashFragment: click icon Mock
+SplashFragment-> MockFragment: auto start
+MockFragment-> MockViewModel : loaddata()
+MockFragment-> GetAlbumListUseCase: getAlbumlist()
+GetAlbumListUseCase -> AlbumRepositoryImpl: searchAlbum(pharse : String)
+AlbumRepositoryImpl -> AlbumRetrofitService : searchAlbumAsync(pharse : String)
+AlbumRetrofitService -> AlbumRetrofitService : searchAlbumAsync(pharse : String, limit : Int)
+AlbumRetrofitService -> Database: search(pharse : String, limit : Int)
+Database --> AlbumRetrofitService : SearchAlbumRespone
+AlbumRetrofitService --> AlbumRepositoryImpl: List<AlbumDomainModel>
+
+alt MockLoadingSuccess
+AlbumRepositoryImpl --> GetAlbumListUseCase : return success
+
+alt List<AlbumDomainModel> != empty
+
+GetAlbumListUseCase --> MockViewModel : List<AlbumDomainModel>
+MockViewModel --> ExploreActivitiesAdapter: List<AlbumDomainModel>
+MockViewModel --> InspireYourselfAdapter: List<AlbumDomainModel>
+MockViewModel --> FindNearbyAdapter: List<AlbumDomainModel>
+ExploreActivitiesAdapter --> MockFragment: update view
+InspireYourselfAdapter --> MockFragment: update view
+FindNearbyAdapter --> MockFragment: update view
+MockFragment--> Activity: attack activity
+
+else List<AlbumDomainModel> == empty
+GetAlbumListUseCase --> MockViewModel : List empty
+MockViewModel --> ExploreActivitiesAdapter: List<AlbumDomainModel>
+MockViewModel --> InspireYourselfAdapter: List<AlbumDomainModel>
+MockViewModel --> FindNearbyAdapter: List<AlbumDomainModel>
+ExploreActivitiesAdapter--> MockFragment: update view
+InspireYourselfAdapter--> MockFragment: update view
+FindNearbyAdapter--> MockFragment: update view
+MockFragment --> Activity: attack activity
+
+end
+else MockLoadingFailure
+AlbumRepositoryImpl --> GetAlbumListUseCase : return fail
+GetAlbumListUseCase --> MockViewModel : list empty
+MockViewModel --> ExploreActivitiesAdapter : List<AlbumDomainModel>
+MockViewModel --> InspireYourselfAdapter : List<AlbumDomainModel>
+MockViewModel --> FindNearbyAdapter : List<AlbumDomainModel>
+ExploreActivitiesAdapter --> MockFragment: update view
+InspireYourselfAdapter --> MockFragment: update view
+FindNearbyAdapter --> MockFragment: update view
+MockFragment --> Activity: attack activity
+end
+@enduml

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:moduleName="feature_mock"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.igorwojda.showcase.feature.mock.presentation.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_mockFragment"
+            app:destination="@id/mockFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mockFragment"
+        android:name="com.igorwojda.showcase.feature.mock.presentation.albumlist.MockFragment"
+        android:label="MockFragment"
+        app:moduleName="feature_mock"/>
+</navigation>

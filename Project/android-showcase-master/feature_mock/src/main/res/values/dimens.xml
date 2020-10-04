@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_size">120dp</dimen>
+    <dimen name="size_txt_title">25sp</dimen>
+    <dimen name="size_txt_description">12sp</dimen>
+    <dimen name="size_txt_item_name">12sp</dimen>
+    <dimen name="size_txt_item_artist">15sp</dimen>
+    <dimen name="width_item_cover_inspire">320dp</dimen>
+    <dimen name="height_item_cover_inspire">200dp</dimen>
+    <dimen name="size_width_item_explore">150dp</dimen>
+    <dimen name="size_height_item_explore">200dp</dimen>
+</resources>
