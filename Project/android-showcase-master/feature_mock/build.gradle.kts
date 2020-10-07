@@ -54,8 +54,10 @@ dependencies {
 
     implementation(project(ModuleDependency.APP))
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("com.squareup.picasso:picasso:2.71828")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
 
     // Fix running instrumentation tests from feature module (this fix will be redundant after updating AGP to 4.x)
     // More: https://github.com/android/app-bundle-samples/issues/42

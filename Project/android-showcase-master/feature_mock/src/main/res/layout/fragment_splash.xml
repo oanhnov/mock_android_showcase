@@ -8,7 +8,7 @@
     android:id="@+id/llSplash"
     android:transitionName="@string/transition_layout"
     tools:context=".SplashFragment">
-
+	
         <ImageView
             android:id="@+id/imgSplash"
             android:layout_width="70dp"

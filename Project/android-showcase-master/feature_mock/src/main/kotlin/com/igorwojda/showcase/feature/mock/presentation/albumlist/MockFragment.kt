@@ -54,24 +54,26 @@ class MockFragment : InjectionFragment(R.layout.fragment_mock) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        initView()
+    }
+
+    private fun initView(){
         layoutAlbum.visibility = View.GONE
         rclExplore.apply {
-            setHasFixedSize(false)
             layoutManager = GridLayoutManager(rclExplore.getContext(), 1, GridLayoutManager.HORIZONTAL, false)
             adapter = exploreActivitiesAdapter
 
         }
         rclInspire.apply {
-            setHasFixedSize(false)
             layoutManager = GridLayoutManager(rclInspire.getContext(), 1, GridLayoutManager.HORIZONTAL, false)
             adapter = inspireYourselfAdapter
+
         }
         rclFindNearby.apply {
             setHasFixedSize(false)
             layoutManager = GridLayoutManager(rclFindNearby.getContext(), 1, GridLayoutManager.HORIZONTAL, false)
             adapter = findNearbyAdapter
         }
-
         observe(viewModel.stateLiveData, stateObserver)
         viewModel.loadData()
         var checkFindShow = 0
@@ -89,8 +91,6 @@ class MockFragment : InjectionFragment(R.layout.fragment_mock) {
                 }
 
             })
-
-
     }
 
 

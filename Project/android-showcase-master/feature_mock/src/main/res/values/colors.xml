@@ -6,4 +6,5 @@
     <color name="transparent">#00000000</color>
     <color name="color_txt_item_name">#BABABA</color>
     <color name="color_txt_item_artist">#ffffff</color>
+    <color name="color_bg_white">#ffffff</color>
 </resources>

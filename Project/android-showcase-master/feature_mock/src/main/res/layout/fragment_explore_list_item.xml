@@ -6,7 +6,6 @@
     android:layout_height="@dimen/size_height_item_explore"
     android:background="@android:color/transparent">
 
-
     <com.igorwojda.showcase.feature.mock.presentation.customview.BlurShadowImageView
         android:id="@+id/imgItemCoverAlbum"
         android:layout_width="match_parent"

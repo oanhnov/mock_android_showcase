@@ -6,7 +6,6 @@
     android:layout_height="@dimen/height_item_cover_inspire"
     android:background="@android:color/transparent">
 
-
     <com.igorwojda.showcase.feature.mock.presentation.customview.BlurShadowImageView
         android:id="@+id/imgItemCoverAlbum"
         android:layout_width="match_parent"
@@ -16,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+		
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgItemAvatar"
         android:layout_width="40dp"
